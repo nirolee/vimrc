@@ -48,3 +48,60 @@ set hlsearch "高亮显示搜索结果
 
 " 错误提示
 set noerrorbells "关闭错误提示
+set novisualbell "关闭使用可视代替呼叫
+set t_vb=""  "置空错误提示
+
+" 状态栏
+set cmdheight=2 "设置命令行为两行
+set laststatus=2 "设置状态栏数
+set ruler "标尺
+
+" 工具栏
+set guioptions-=T "隐藏工具栏
+"set guioptions-=m "隐藏菜单栏
+
+" 自动切换目录
+set autochdir
+
+" 突出显示当前行
+set cursorline
+
+" 不在设定在插入状态无法用退格和delete删除回车符
+set backspace=indent,eol,start
+
+"设置字符集
+if has("multi_byte")
+    " UTF-8编码
+    set encoding=utf-8
+    set fileencoding=utf-8
+    set termencoding=utf-8
+    set formatoptions+=mM
+    set fencs=utf-8,gbk
+
+    if has("win32")
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+        language message zh_CN.utf-8
+    endif
+
+endif
+
+" 自动填充
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
+inoremap { {}<ESC>i
+inoremap {<CR> {<CR>}<ESC>O
+
+" 共享剪切板
+set clipboard+=unnamed
+
+" 全屏
+if has("win32")
+    au GUIEnter * simalt ~x "自动最大化
+endif
+
+" 插件
+filetype on "检测文件类型
+filetype plugin on "载入文件类型插件
