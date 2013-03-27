@@ -105,3 +105,6 @@ endif
 " 插件
 filetype on "检测文件类型
 filetype plugin on "载入文件类型插件
+
+" 允许未保存时切换缓冲区
+set hidden
