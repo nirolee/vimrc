@@ -86,14 +86,6 @@ if has("multi_byte")
 
 endif
 
-" 自动填充
-inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap { {}<ESC>i
-inoremap {<CR> {<CR>}<ESC>O
-
 " 共享剪切板
 set clipboard+=unnamed
 
@@ -108,3 +100,22 @@ filetype plugin on "载入文件类型插件
 
 " 允许未保存时切换缓冲区
 set hidden
+
+" 自动填充
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
+inoremap { {}<ESC>i
+inoremap {<CR> {<CR>}<ESC>O
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+
+function ClosePair(char)
+    if getline('.')[col('.')-1] == a:char
+        return "\<Right>"
+    else 
+        return a:char
+    end if
+endfunction
