@@ -49,7 +49,7 @@ set hlsearch "高亮显示搜索结果
 " 错误提示
 set noerrorbells "关闭错误提示
 set novisualbell "关闭使用可视代替呼叫
-set t_vb=""  "置空错误提示
+set vb t_vb=  "置空错误提示
 
 " 状态栏
 set cmdheight=2 "设置命令行为两行
