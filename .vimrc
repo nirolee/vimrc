@@ -15,7 +15,11 @@
 set nocompatible
 
 "风格
-colorscheme desert
+if has("gui_running")
+    colorscheme desert
+else
+    colorscheme devbox-dark-256
+endif
 if has("win32") 
     set guifont=Courier\ New\ 12
 else
@@ -119,3 +123,5 @@ function ClosePair(char)
         return a:char
     end if
 endfunction
+
+"vim: sw=4"
